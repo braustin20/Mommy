@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 	public Camera fpsCamera;
 	public GameObject fpsFlashlight;
 	public GameObject ovrFlashlight;
+	public GameObject ovrCharacter;
 	private bool oculus;
 	
 	// Use this for initialization
@@ -40,7 +41,15 @@ public class GameManager : MonoBehaviour {
 				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = false;
 			}
 		}
-		
+		if(Input.GetKeyDown(KeyCode.C)){
+			ovrFlashlight.gameObject.GetComponent<MouseLook>().enabled = true;
+			ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
+			
+		}
+		if(Input.GetKeyUp(KeyCode.C)){
+			ovrFlashlight.gameObject.GetComponent<MouseLook>().enabled = false;
+			ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
+		}
 		
 		/*
 		if(Input.GetKeyDown(KeyCode.Alpha1)){

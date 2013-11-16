@@ -40,8 +40,18 @@ public class PlayerInteract: MonoBehaviour {
 				}
 			}
 			//If the grab key is pressed and an object is held, drop it
-			else{
+			else if (isHolding == true){
 				isHolding = false;
+			}
+		}
+		if(Input.GetKeyDown(KeyCode.F)){
+			if(isHolding == true){
+				isHolding = false;
+				hitObject.parent = null;
+            	hitObject.rigidbody.useGravity = true;
+				hitObject.rigidbody.AddForce ((this.transform.forward * 1000));	
+					
+				hitObject = null;
 			}
 	    }
 		//If the object should be held, update it's position
@@ -57,7 +67,7 @@ public class PlayerInteract: MonoBehaviour {
 	        hitObject.transform.rotation = this.transform.rotation; 
 	    }
 		//If the object should not be held, detach from the camera and turn on gravity
-	    else if(hitObject != null){ 
+	    else if(hitObject != null && isHolding == false){ 
             hitObject.parent = null;
             hitObject.rigidbody.useGravity = true;
 			hitObject = null;
