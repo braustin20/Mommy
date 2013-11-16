@@ -21,12 +21,12 @@ Mommy Project ReadMe (Unity Pro Required?)
 	git push origin <branchName>
 	
 +pulling from master
-	+git fetch origin
-	+git merge origin/master
+	git fetch origin
+	git merge origin/master
 
 +pulling from branch
-	+git fetch <branchName>
-	+git merge origin/<branchName>
+	git fetch <branchName>
+	git merge origin/<branchName>
 
 +deleting a branch locally
 	git branch -d <branchName>
