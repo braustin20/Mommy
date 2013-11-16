@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject fpsFlashlight;
 	public GameObject ovrFlashlight;
 	public GameObject ovrCharacter;
+	public GameObject fpsCharacter;
 	private bool oculus;
 	
 	// Use this for initialization
@@ -24,8 +25,8 @@ public class GameManager : MonoBehaviour {
 				ovrCameraL.enabled = false;
 				ovrCameraR.enabled = false;
 				fpsCamera.enabled = true;
-				//ovrFlashlight.gameObject.SetActive(false);
-				//fpsFlashlight.gameObject.SetActive(true);
+				ovrFlashlight.gameObject.SetActive(false);
+				fpsFlashlight.gameObject.SetActive(true);
 				oculus = false;
 				ovrCameraR.gameObject.GetComponent<PlayerInteract>().enabled = false;
 				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = true;
@@ -34,21 +35,34 @@ public class GameManager : MonoBehaviour {
 				ovrCameraL.enabled = true;
 				ovrCameraR.enabled = true;
 				fpsCamera.enabled = false;
-				//ovrFlashlight.gameObject.SetActive(true);
-				//fpsFlashlight.gameObject.SetActive(false);
+				ovrFlashlight.gameObject.SetActive(true);
+				fpsFlashlight.gameObject.SetActive(false);
 				oculus = true;
 				ovrCameraR.gameObject.GetComponent<PlayerInteract>().enabled = true;
 				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = false;
 			}
 		}
-		if(Input.GetKeyDown(KeyCode.C)){
-			ovrFlashlight.gameObject.GetComponent<MouseLook>().enabled = true;
-			ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
-			
+		if(oculus == true){
+			if(Input.GetKeyDown(KeyCode.C)){
+				ovrFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = true;
+				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
+			}
+			if(Input.GetKeyUp(KeyCode.C)){
+				ovrFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = false;
+				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
+			}
 		}
-		if(Input.GetKeyUp(KeyCode.C)){
-			ovrFlashlight.gameObject.GetComponent<MouseLook>().enabled = false;
-			ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
+		else{
+			if(Input.GetKeyDown(KeyCode.C)){
+				fpsFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = true;
+				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
+				fpsCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
+			}
+			if(Input.GetKeyUp(KeyCode.C)){
+				fpsFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = false;
+				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
+				fpsCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
+			}
 		}
 		
 		/*
