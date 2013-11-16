@@ -54,13 +54,13 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100006
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400006}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400030}
   m_Layer: 0
   m_Name: PlayerFlashlight1
   m_TagString: GrabbableObject
@@ -79,12 +79,12 @@ GameObject:
   - 20: {fileID: 2000002}
   - 92: {fileID: 9200000}
   - 124: {fileID: 12400002}
-  - 114: {fileID: 11400010}
   - 81: {fileID: 8100002}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400010}
   m_Layer: 0
-  m_Name: FPS Camera
+  m_Name: FPS Character
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,14 +237,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400026}
-  - 114: {fileID: 11400030}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: PlayerFlashlight2
   m_TagString: GrabbableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100028
 GameObject:
   m_ObjectHideFlags: 1
@@ -349,14 +349,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: -3.48790707e-07, z: 0, w: 1}
-  m_LocalPosition: {x: 1.36493373, y: -.227295041, z: .0321504474}
+  m_LocalPosition: {x: .983346164, y: .987469912, z: .812272429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
   - {fileID: 400000}
   - {fileID: 400014}
   - {fileID: 400010}
-  m_Father: {fileID: 400008}
+  m_Father: {fileID: 400012}
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -366,8 +366,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .899999976, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 400006}
+  m_Children: []
   m_Father: {fileID: 400012}
 --- !u!4 &400010
 Transform:
@@ -393,6 +392,7 @@ Transform:
   - {fileID: 400020}
   - {fileID: 400016}
   - {fileID: 400008}
+  - {fileID: 400006}
   m_Father: {fileID: 0}
 --- !u!4 &400014
 Transform:
@@ -470,7 +470,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.36493289, y: -.22729516, z: -.0840682089}
+  m_LocalPosition: {x: .989966273, y: -.811818123, z: .712299883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400032}
@@ -918,10 +918,10 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
+  m_GameObject: {fileID: 100026}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ec2fe99d1108b9d0006a298d76c639, type: 3}
+  m_Script: {fileID: 11500000, guid: 07b7ece26b86716498f1a0efed9b0af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 0
@@ -999,11 +999,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ec2fe99d1108b9d0006a298d76c639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 0
-  sensitivityX: 10
-  sensitivityY: 10
-  minimumX: -60
-  maximumX: 60
+  axes: 2
+  sensitivityX: 15
+  sensitivityY: 15
+  minimumX: -360
+  maximumX: 360
   minimumY: -60
   maximumY: 60
 --- !u!114 &11400012
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533bf0de0da3d834b94c52ba36ba3401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobbingSpeed: .360000014
+  bobbingSpeed: .200000003
   bobbingAmount: .0379999988
   midpoint: 2
 --- !u!114 &11400014
@@ -1045,9 +1045,9 @@ MonoBehaviour:
   canControl: 1
   useFixedUpdate: 1
   movement:
-    maxForwardSpeed: 6
-    maxSidewaysSpeed: 6
-    maxBackwardsSpeed: 6
+    maxForwardSpeed: 4.5
+    maxSidewaysSpeed: 4.5
+    maxBackwardsSpeed: 3
     slopeSpeedMultiplier:
       serializedVersion: 2
       m_Curve:
@@ -1073,7 +1073,7 @@ MonoBehaviour:
     gravity: 20
     maxFallSpeed: 20
   jumping:
-    enabled: 1
+    enabled: 0
     baseHeight: 1
     extraHeight: 1
     perpAmount: 0
@@ -1196,10 +1196,10 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100026}
+  m_GameObject: {fileID: 100006}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ec2fe99d1108b9d0006a298d76c639, type: 3}
+  m_Script: {fileID: 11500000, guid: 07b7ece26b86716498f1a0efed9b0af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 0

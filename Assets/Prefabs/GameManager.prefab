@@ -43,6 +43,8 @@ MonoBehaviour:
   fpsCamera: {fileID: 0}
   fpsFlashlight: {fileID: 0}
   ovrFlashlight: {fileID: 0}
+  ovrCharacter: {fileID: 0}
+  fpsCharacter: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
