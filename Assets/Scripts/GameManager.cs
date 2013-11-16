@@ -43,22 +43,22 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		if(oculus == true){
-			if(Input.GetKeyDown(KeyCode.C)){
+			if(Input.GetKeyDown(KeyCode.Mouse1)){
 				ovrFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = true;
 				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
 			}
-			if(Input.GetKeyUp(KeyCode.C)){
+			if(Input.GetKeyUp(KeyCode.Mouse1)){
 				ovrFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = false;
 				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
 			}
 		}
 		else{
-			if(Input.GetKeyDown(KeyCode.C)){
+			if(Input.GetKeyDown(KeyCode.Mouse1)){
 				fpsFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = true;
 				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
 				fpsCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
 			}
-			if(Input.GetKeyUp(KeyCode.C)){
+			if(Input.GetKeyUp(KeyCode.Mouse1)){
 				fpsFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = false;
 				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
 				fpsCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
