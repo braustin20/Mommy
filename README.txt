@@ -5,12 +5,12 @@ Mommy Project ReadMe (Unity Pro Required?)
 	git init
 	git clone https://github.com/Tarwine/Mommy.git
 	cd Mommy
-	git remote add upstream https://github.com/Tarwine/Mommy.git
-	git fetch upstream
+	git remote add origin https://github.com/Tarwine/Mommy.git
+	git fetch origin
 
 +creating a branch
 	git checkout -b <branchName>
-	git push upstream <branchName>
+	git push origin <branchName>
 
 +switching branches
 	git chechout <newBranchName>
@@ -18,21 +18,21 @@ Mommy Project ReadMe (Unity Pro Required?)
 +pushing to current branch
 	git status
 	git commit --all -m"<message>"
-	git push upstream <branchName>
+	git push origin <branchName>
 	
 +pulling from master
-	+git fetch upstream
-	+git merge upstream/master
+	+git fetch origin
+	+git merge origin/master
 
 +pulling from branch
 	+git fetch <branchName>
-	+git merge <branchName>
+	+git merge origin/<branchName>
 
 +deleting a branch locally
 	git branch -d <branchName>
-
-+deleting a branch from github
-	git push upstream :<branchName>
+	
++refreshing remote branches
+	git remote prune origin
 
 
 
