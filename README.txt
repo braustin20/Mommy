@@ -15,7 +15,7 @@ Mommy Project ReadMe (Unity Pro Required?)
 +pushing to current branch
 	git status
 	git commit --all -m"<message>"
-	git push
+	git push upstream <branchName>
 	
 +pulling from master
 	+git fetch upstream
