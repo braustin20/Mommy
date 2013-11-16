@@ -11,6 +11,9 @@ Mommy Project ReadMe (Unity Pro Required?)
 +creating a branch
 	git checkout -b <branchName>
 	git push upstream <branchName>
+
++switching branches
+	git chechout <newBranchName>
 	
 +pushing to current branch
 	git status
@@ -24,6 +27,12 @@ Mommy Project ReadMe (Unity Pro Required?)
 +pulling from branch
 	+git fetch <branchName>
 	+git merge <branchName>
+
++deleting a branch locally
+	git branch -d <branchName>
+
++deleting a branch from github
+	git push upstream :<branchName>
 
 
 
