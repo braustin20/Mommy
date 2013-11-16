@@ -4,6 +4,7 @@ using System.Collections;
 public class Door : MonoBehaviour {
 	bool doorClosed;
 	bool rotating;
+	bool opened;
 	Quaternion initialRot;
 	Quaternion targetRot;
 	float t;
@@ -13,6 +14,7 @@ public class Door : MonoBehaviour {
 	void Start () {
 		doorClosed = true;
 		rotating = false;
+		opened = false;
 		animTime = 0.0f;
 	}
 	
@@ -46,6 +48,12 @@ public class Door : MonoBehaviour {
 				rotating = true;
 				doorClosed = true;
 			}
+		}
+	}
+	public void startEvent(){
+		if(opened == false){
+			audio.Play();
+			opened = true;
 		}
 	}
 }

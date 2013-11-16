@@ -33,8 +33,18 @@ public class PlayerInteract: MonoBehaviour {
 				    	isHolding = true;
 						hitObject = hit.collider.gameObject.transform;
 					}
+					else if(hit.collider.gameObject.tag == "TriggerObject"){
+						isHolding = true;
+						hitObject = hit.collider.gameObject.transform;
+						hitObject.gameObject.GetComponent<PickupTrigger>().startEvent();	
+					}
 					else if(hit.collider.gameObject.tag == "UseableDoor"){
 						hit.collider.gameObject.GetComponent<Door>().RotateDoor(1.0f);
+						Debug.Log("Hit door");
+					}
+					else if(hit.collider.gameObject.tag == "TriggerDoor"){
+						hit.collider.gameObject.GetComponent<Door>().RotateDoor(1.0f);
+						hit.collider.gameObject.GetComponent<Door>().startEvent();
 						Debug.Log("Hit door");
 					}
 				}
@@ -44,7 +54,7 @@ public class PlayerInteract: MonoBehaviour {
 				isHolding = false;
 			}
 		}
-		if(Input.GetKeyDown(KeyCode.F)){
+		if(Input.GetKeyDown(KeyCode.Mouse0)){
 			if(isHolding == true){
 				isHolding = false;
 				hitObject.parent = null;
@@ -62,7 +72,7 @@ public class PlayerInteract: MonoBehaviour {
 	        hitObject.parent = this.transform;
 	 		
 			//Change the final int to change distance from camera
-	        hitObject.transform.position = this.transform.position + (this.transform.forward * 1.5f); 
+	        hitObject.transform.position = (this.transform.position + (this.transform.forward * 2.25f)) - new Vector3(0, 0.5f, 0); 
 	 
 	        hitObject.transform.rotation = this.transform.rotation; 
 	    }
