@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour {
 				ovrCameraL.enabled = false;
 				ovrCameraR.enabled = false;
 				fpsCamera.enabled = true;
-				ovrFlashlight.gameObject.SetActive(false);
-				fpsFlashlight.gameObject.SetActive(true);
+				//ovrFlashlight.gameObject.SetActive(false);
+				//fpsFlashlight.gameObject.SetActive(true);
 				oculus = false;
 				ovrCameraR.gameObject.GetComponent<PlayerInteract>().enabled = false;
 				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = true;
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour {
 				ovrCameraL.enabled = true;
 				ovrCameraR.enabled = true;
 				fpsCamera.enabled = false;
-				ovrFlashlight.gameObject.SetActive(true);
-				fpsFlashlight.gameObject.SetActive(false);
+				//ovrFlashlight.gameObject.SetActive(true);
+				//fpsFlashlight.gameObject.SetActive(false);
 				oculus = true;
 				ovrCameraR.gameObject.GetComponent<PlayerInteract>().enabled = true;
 				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = false;
