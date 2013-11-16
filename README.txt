@@ -1,7 +1,39 @@
-Mommy Project ReadMe
+Mommy Project ReadMe (Unity Pro Required?)
 
++++Git++++
++setup
+	git init
+	git clone https://github.com/Tarwine/Mommy.git
+	cd Mommy
+	git remote add upstream https://github.com/Tarwine/Mommy.git
+	git fetch upstream
 
-+Unity Pro Required
++creating a branch
+	git checkout -b <branchName>
+	git push upstream <branchName>
+
++switching branches
+	git chechout <newBranchName>
+	
++pushing to current branch
+	git status
+	git commit --all -m"<message>"
+	git push upstream <branchName>
+	
++pulling from master
+	+git fetch upstream
+	+git merge upstream/master
+
++pulling from branch
+	+git fetch <branchName>
+	+git merge <branchName>
+
++deleting a branch locally
+	git branch -d <branchName>
+
++deleting a branch from github
+	git push upstream :<branchName>
+
 
 
 +Game Keyboard Commands
