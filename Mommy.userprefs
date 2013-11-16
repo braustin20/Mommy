@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerInteract.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerInteract.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="46" Column="38" />
+      <File FileName="Assets\Scripts\PlayerInteract.cs" Line="1" Column="2687" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\FlashlightControls.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Door.cs" Line="1" Column="1" />
     </Files>
