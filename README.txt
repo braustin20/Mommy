@@ -7,4 +7,4 @@ Mommy Project ReadMe
 +Game Keyboard Commands
  - 'O' -- Enable Oculus
  - 'E' -- Interact
- - 'W, A, S, D' -- Movement2
+ - 'W, A, S, D' -- Movement
