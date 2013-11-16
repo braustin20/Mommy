@@ -10,7 +10,7 @@ Mommy Project ReadMe (Unity Pro Required?)
 
 +creating a branch
 	git checkout -b <branchName>
-	git push origin <branchName>
+	git push --set-upstream origin <branchName>
 
 +switching branches
 	git chechout <newBranchName>
