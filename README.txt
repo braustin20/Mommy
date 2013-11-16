@@ -17,6 +17,7 @@ Mommy Project ReadMe (Unity Pro Required?)
 	
 +pushing to current branch
 	git status
+	git add .
 	git commit --all -m"<message>"
 	git push origin <branchName>
 	
