@@ -9,7 +9,9 @@ public class Door : MonoBehaviour {
 	Quaternion targetRot;
 	float t;
 	float animTime;
-
+	public AudioClip openClip;
+	public AudioClip closeClip;
+	
 	// Use this for initialization
 	void Start () {
 		doorClosed = true;
@@ -35,6 +37,8 @@ public class Door : MonoBehaviour {
 		animTime = time;
 		if(rotating == false){
 			if(doorClosed == true){
+				audio.clip = openClip;
+				audio.Play();
 				initialRot = transform.localRotation;
 			    targetRot = transform.localRotation * Quaternion.Euler(new Vector3(0, -90, 0));
 			    t = 0.0f;
@@ -42,6 +46,8 @@ public class Door : MonoBehaviour {
 				doorClosed = false;
 			}
 			else if(doorClosed == false){
+				audio.clip = closeClip;
+				audio.Play();
 			    initialRot = transform.localRotation;
 			    targetRot = transform.localRotation * Quaternion.Euler(new Vector3(0, 90, 0));
 			    t = 0.0f;
@@ -52,7 +58,7 @@ public class Door : MonoBehaviour {
 	}
 	public void startEvent(){
 		if(opened == false){
-			audio.Play();
+			//audio.Play();
 			opened = true;
 		}
 	}
