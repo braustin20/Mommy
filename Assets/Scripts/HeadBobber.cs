@@ -37,6 +37,7 @@ public class HeadBobber : MonoBehaviour {
        		this.transform.localPosition = tempPosition;
 		}
 		else {
+			audio.Play();
 			Vector3 tempPosition = this.transform.localPosition;
 			tempPosition.y = midpoint;
 			this.transform.localPosition = tempPosition ;
