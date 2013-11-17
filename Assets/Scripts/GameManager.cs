@@ -2,14 +2,11 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-	public Camera ovrCameraL;
-	public Camera ovrCameraR;
-	public Camera fpsCamera;
 	public GameObject fpsFlashlight;
 	public GameObject ovrFlashlight;
-	public GameObject ovrCharacter;
 	public GameObject ovrCameraController;
 	public GameObject fpsCharacter;
+	private GameObject ovrCharacter;
 	private bool oculus;
 	
 	// Use this for initialization
@@ -17,42 +14,25 @@ public class GameManager : MonoBehaviour {
 		Screen.lockCursor = true;
 		Screen.showCursor = false;
 		oculus = false;
+		ovrCharacter = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.O)){
 			if(oculus == true){
-				ovrCameraL.enabled = false;
-				ovrCameraR.enabled = false;
-				fpsCamera.enabled = true;
-				ovrFlashlight.gameObject.SetActive(false);
 				fpsFlashlight.gameObject.SetActive(true);
 				oculus = false;
-				ovrCameraR.gameObject.GetComponent<PlayerInteract>().enabled = false;
-				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = true;
-				fpsCamera.audio.gameObject.SetActive(true);
-				ovrCameraController.audio.gameObject.SetActive(false);
-				ovrCharacter.gameObject.GetComponent<HeadBobber>().enabled = false;
-				fpsCharacter.gameObject.GetComponent<HeadBobber>().enabled = true;
-				ovrCameraR.gameObject.GetComponent<AudioListener>().enabled = false;
-				fpsCharacter.GetComponent<AudioListener>().enabled = true;
+				
+				ovrCameraController.gameObject.SetActive(false);
+				fpsCharacter.gameObject.SetActive(true);
 			}
 			else if(oculus == false){
-				ovrCameraL.enabled = true;
-				ovrCameraR.enabled = true;
-				fpsCamera.enabled = false;
-				ovrFlashlight.gameObject.SetActive(true);
 				fpsFlashlight.gameObject.SetActive(false);
 				oculus = true;
-				ovrCameraR.gameObject.GetComponent<PlayerInteract>().enabled = true;
-				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = false;
-				fpsCamera.audio.gameObject.SetActive(false);
-				ovrCameraController.audio.gameObject.SetActive(true);
-				ovrCharacter.gameObject.GetComponent<HeadBobber>().enabled = true;
-				fpsCharacter.gameObject.GetComponent<HeadBobber>().enabled = false;
-				ovrCameraR.gameObject.GetComponent<AudioListener>().enabled = true;
-				fpsCharacter.GetComponent<AudioListener>().enabled = false;
+				
+				ovrCameraController.gameObject.SetActive(true);
+				fpsCharacter.gameObject.SetActive(false);
 			}
 		}
 		if(oculus == true){
@@ -77,14 +57,5 @@ public class GameManager : MonoBehaviour {
 				fpsCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
 			}
 		}
-		
-		/*
-		if(Input.GetKeyDown(KeyCode.Alpha1)){
-			Application.LoadLevel(0);
-		}
-		else if(Input.GetKeyDown(KeyCode.Alpha2)){
-			Application.LoadLevel(1);
-		}
-		*/
 	}
 }

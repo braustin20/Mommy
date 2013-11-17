@@ -885,6 +885,10 @@ Prefab:
       propertyPath: fpsCharacter
       value: 
       objectReference: {fileID: 592018678}
+    - target: {fileID: 11400000, guid: 94f982e958f3f254098ce49a7ee4f5f8, type: 2}
+      propertyPath: ovrCameraController
+      value: 
+      objectReference: {fileID: 959635534}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94f982e958f3f254098ce49a7ee4f5f8, type: 2}
   m_RootGameObject: {fileID: 1236903519}
@@ -2532,6 +2536,7 @@ GameObject:
   - 114: {fileID: 592018681}
   - 114: {fileID: 592018680}
   - 114: {fileID: 592018687}
+  - 82: {fileID: 592018683}
   m_Layer: 0
   m_Name: FPS Character
   m_TagString: MainCamera
@@ -2587,6 +2592,64 @@ AudioListener:
   m_PrefabInternal: {fileID: 2037155679}
   m_GameObject: {fileID: 592018678}
   m_Enabled: 1
+--- !u!82 &592018683
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592018678}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: a952868ee2f0cfa41bbc7427d99a6281, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!124 &592018684
 Behaviour:
   m_ObjectHideFlags: 0
@@ -3406,7 +3469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &734983969
 Transform:
   m_ObjectHideFlags: 0
@@ -3429,7 +3492,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2037155679}
   m_GameObject: {fileID: 734983967}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07b7ece26b86716498f1a0efed9b0af7, type: 3}
   m_Name: 
@@ -4297,7 +4360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &959635535
 Transform:
   m_ObjectHideFlags: 0
@@ -4379,8 +4442,8 @@ AudioSource:
   m_GameObject: {fileID: 959635534}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: e95ebdd17ec088d4a9006bd6b95f4c99, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: a952868ee2f0cfa41bbc7427d99a6281, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: -.600000024
   Loop: 1
@@ -5485,12 +5548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2aaaadda2722241bd462929d2ad951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ovrCameraL: {fileID: 1262649321}
-  ovrCameraR: {fileID: 1394881741}
-  fpsCamera: {fileID: 592018686}
   fpsFlashlight: {fileID: 433623552}
   ovrFlashlight: {fileID: 734983967}
-  ovrCharacter: {fileID: 875313236}
+  ovrCameraController: {fileID: 959635534}
   fpsCharacter: {fileID: 592018678}
 --- !u!4 &1236903521
 Transform:
@@ -5775,7 +5835,7 @@ Camera:
     type: 2}
   m_PrefabInternal: {fileID: 2037155679}
   m_GameObject: {fileID: 1262649316}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: 0}
@@ -6131,7 +6191,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2037155679}
   m_GameObject: {fileID: 1394881734}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdec4318d2b3a8c4d8771862a2517ec0, type: 3}
   m_Name: 
@@ -6178,7 +6238,7 @@ AudioListener:
     type: 2}
   m_PrefabInternal: {fileID: 2037155679}
   m_GameObject: {fileID: 1394881734}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!124 &1394881740
 Behaviour:
   m_ObjectHideFlags: 0
@@ -6194,7 +6254,7 @@ Camera:
     type: 2}
   m_PrefabInternal: {fileID: 2037155679}
   m_GameObject: {fileID: 1394881734}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
@@ -9090,6 +9150,38 @@ Prefab:
     - target: {fileID: 400012, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
       propertyPath: m_LocalRotation.w
       value: .32810843
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400024, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100000, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000004, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7e10dace11e6664db3a88bb5c8c8db6, type: 2}
