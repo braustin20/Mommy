@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PickupTrigger : MonoBehaviour {
 	bool pickedUp;
+	public bool phoneOff;
+	public AudioClip loopingSound;
+	public AudioClip phoneHangUp;
 	
 	// Use this for initialization
 	void Start () {
@@ -14,8 +17,9 @@ public class PickupTrigger : MonoBehaviour {
 	
 	}
 	public void startEvent(){
-		if(pickedUp == false){
-			audio.Play();
+		//For phone event scare
+		if(pickedUp == false && phoneOff == true){
+			audio.clip = phoneHangUp;
 			pickedUp = true;
 		}
 	}
