@@ -1,15 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\clockTriggerScritp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\tutorialText.js">
     <Files>
-      <File FileName="Assets\Scripts\TriggerEvent.cs" Line="62" Column="6" />
-      <File FileName="Assets\Scripts\HeadBobber.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TriggerEvent.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HeadBobber.cs" Line="31" Column="23" />
       <File FileName="Assets\Scripts\PlayerInteract.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="12" Column="32" />
       <File FileName="Assets\Scripts\FlashlightControls.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Door.cs" Line="67" Column="78" />
       <File FileName="Assets\Scripts\PickupTrigger.cs" Line="29" Column="57" />
-      <File FileName="Assets\clockTriggerScritp.cs" Line="25" Column="48" />
+      <File FileName="Assets\clockTriggerScritp.cs" Line="12" Column="18" />
+      <File FileName="Assets\clockSoundChangeScript.cs" Line="16" Column="33" />
+      <File FileName="Assets\Scripts\tutorialText.js" Line="34" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

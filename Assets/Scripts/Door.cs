@@ -13,6 +13,8 @@ public class Door : MonoBehaviour {
 	public AudioClip closeClip;
 	public AudioClip slamDoorClip;
 	public bool slam;
+	public bool lightScare;
+	public GameObject lightSource;
 	
 	// Use this for initialization
 	void Start () {
@@ -21,6 +23,7 @@ public class Door : MonoBehaviour {
 		opened = false;
 		animTime = 0.0f;
 		slam = false;
+		lightScare = false;
 	}
 	
 	// Update is called once per frame
@@ -69,6 +72,19 @@ public class Door : MonoBehaviour {
 				rotating = true;
 				doorClosed = true;
 				slam = false;
+			}
+		
+		if(doorClosed == false && lightScare == false && gameObject.name == "bathroom"){
+				Debug.Log("LIGHT TRIGGER");
+				lightSource.gameObject.GetComponent<lightTriggerEvent>().triggered = true;
+				audio.clip = openClip;
+				audio.Play();
+			    initialRot = transform.localRotation;
+			    targetRot = transform.localRotation * Quaternion.Euler(new Vector3(0, 90, 0));
+			    t = 0.0f;
+				rotating = true;
+				doorClosed = true;
+				lightScare = true;
 			}
 	}
 	public void startEvent(){
