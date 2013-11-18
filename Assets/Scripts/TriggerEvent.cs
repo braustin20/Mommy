@@ -6,12 +6,15 @@ public class TriggerEvent : MonoBehaviour {
 	public bool shadowScare;
 	private Vector3 previousPosition;
 	private Vector3 newPosition; 
-	private GameObject destroyBunny;
+	private GameObject bunnyCutout;
+	private GameObject targetLoc;
+	
 	// Use this for initialization
 	void Start () {
 		alive = true;
 		shadowScare = false;
-		destroyBunny = GameObject.Find("bunny_cutout");
+		bunnyCutout = GameObject.Find("bunny_cutout");
+		targetLoc = GameObject.Find("lerpLoc");
 	}
 	
 	// Update is called once per frame
@@ -19,32 +22,21 @@ public class TriggerEvent : MonoBehaviour {
 
 		//ShadowScare starts false, when activated the shadow begins to pan away.
 		if(shadowScare){
-					cameraPan();
+			cutoutPan();
 			
-			if((destroyBunny.transform.position.x - GameObject.Find("lerpLoc").transform.position.x) > -1.0f){
-					//GameObject.Destroy(GameObject.Find("bunny_cutout"));
-					//GameObject.Destroy(GameObject.Find("lerploc"));
-					destroyBunny.renderer.enabled = false;
-					GameObject.Destroy(destroyBunny);
-					shadowScare = false;
-				}
-			
-				}
-		
-		
-		
-		
+			if((bunnyCutout.transform.position.x - targetLoc.transform.position.x) > -1.0f){
+				bunnyCutout.renderer.enabled = false;
+				GameObject.Destroy(bunnyCutout);
+				shadowScare = false;
+			}	
+		}	
 	}
 	
 	void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag == "Player" && alive == true){
-			
+        if(other.gameObject.tag == "Player" && alive == true){			
 			if(!shadowScare){
-				//GameObject.Find("tempBunny").transform.position += new Vector3(500,0,0);
-				shadowScare = true;
-				
+				shadowScare = true;				
 			}
-			
 			
 			audio.Play();
 			Debug.Log("Event Triggered");
@@ -52,15 +44,9 @@ public class TriggerEvent : MonoBehaviour {
 		}
     }
 	
-	void cameraPan(){
- 		previousPosition = destroyBunny.transform.position;
-		 //GameObject.Find("Main Camera").transform.position = Vector3.Lerp(GameObject.Find("Main Camera").transform.position, newPosition,  Time.deltaTime);
- 		destroyBunny.transform.position = Vector3.Lerp(destroyBunny.transform.position, GameObject.Find("lerpLoc").transform.position, (1.5f * Time.deltaTime));
-		
-		
-		
-}
-	
+	void cutoutPan(){
+ 		bunnyCutout.transform.position = Vector3.Lerp(bunnyCutout.transform.position, targetLoc.transform.position, (2.5f * Time.deltaTime));		
+	}	
 }
 
 
