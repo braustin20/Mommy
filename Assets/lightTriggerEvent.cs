@@ -29,7 +29,12 @@ public class lightTriggerEvent : MonoBehaviour {
 				
 			}
 			time = 0;
-			limit = Random.Range(0.05f, 0.5f);	
+			limit = Random.Range(0.05f, 0.5f);
+			
+			
+		}else if(triggered == true && light.enabled == true){
+			Debug.Log("TURN OFF THE LIGHT, BOBBY");
+			light.enabled = false;
 		}
 		
 		

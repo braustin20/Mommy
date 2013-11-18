@@ -2,11 +2,12 @@
 using System.Collections;
 
 public class PickupTrigger : MonoBehaviour {
-	bool pickedUp;
+	public bool pickedUp;
 	public bool phoneOff;
 	public AudioClip loopingSound;
 	public AudioClip phoneHangUp;
 	public AudioClip doorSlam;
+	public GameObject gameManager;
 	
 	public GameObject slamDoor;
 	// Use this for initialization
@@ -29,7 +30,7 @@ public class PickupTrigger : MonoBehaviour {
 			slamDoor.gameObject.GetComponent<Door>().slam = true;
 			slamDoor.gameObject.GetComponent<Door>().RotateDoor(1.2f);
 			
-
+			gameManager.gameObject.GetComponent<GameManager>().firstTrigger = true;
 			
 			//slamDoor.RotateDoor(10);
 		}

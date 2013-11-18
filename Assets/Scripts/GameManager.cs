@@ -7,7 +7,12 @@ public class GameManager : MonoBehaviour {
 	public GameObject ovrCameraController;
 	public GameObject fpsCharacter;
 	private GameObject ovrCharacter;
+	public GameObject finalBunny;
 	private bool oculus;
+	
+	public bool firstTrigger;
+	public bool secondTrigger;
+	public bool thirdTrigger;
 	
 	// Use this for initialization
 	void Start () {
@@ -57,5 +62,11 @@ public class GameManager : MonoBehaviour {
 				fpsCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
 			}
 		}
+		
+		if(firstTrigger == true && secondTrigger == true && thirdTrigger == true ){
+			finalBunny.SetActive(true);
+		}
 	}
+	
+	
 }

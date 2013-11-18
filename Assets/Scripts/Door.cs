@@ -15,6 +15,7 @@ public class Door : MonoBehaviour {
 	public bool slam;
 	public bool lightScare;
 	public GameObject lightSource;
+	public GameObject gameManager;
 	
 	// Use this for initialization
 	void Start () {
@@ -85,6 +86,8 @@ public class Door : MonoBehaviour {
 				rotating = true;
 				doorClosed = true;
 				lightScare = true;
+			
+				gameManager.gameObject.GetComponent<GameManager>().secondTrigger = true;
 			}
 	}
 	public void startEvent(){

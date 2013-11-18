@@ -3,9 +3,10 @@ using System.Collections;
 
 public class clockTriggerScritp : MonoBehaviour {
 	public GameObject clock;
+	public GameObject gameManager;
 	public bool alive;
 	public AudioClip dingDong;
-	bool tripped;
+	public bool tripped;
 	// Use this for initialization
 	void Start () {
 		alive = true;
@@ -25,7 +26,9 @@ public class clockTriggerScritp : MonoBehaviour {
 				
 				clock.gameObject.GetComponent<clockSoundChangeScript>().change = true;
 				Debug.Log("WE HAVE ARRIVED");
-				tripped = false;
+				tripped = true;
+				gameManager.gameObject.GetComponent<GameManager>().thirdTrigger = true;
+				
 				
 			}
 			
