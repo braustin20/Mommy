@@ -27,7 +27,7 @@ public class PickupTrigger : MonoBehaviour {
 			
 			Debug.Log("GETTING CALLED");
 			slamDoor.gameObject.GetComponent<Door>().slam = true;
-			slamDoor.gameObject.GetComponent<Door>().RotateDoor(10.0f * Time.deltaTime);
+			slamDoor.gameObject.GetComponent<Door>().RotateDoor(1.2f);
 			
 
 			

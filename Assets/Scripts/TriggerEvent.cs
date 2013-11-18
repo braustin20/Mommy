@@ -4,6 +4,7 @@ using System.Collections;
 public class TriggerEvent : MonoBehaviour {
 	public bool alive;
 	public bool shadowScare;
+	private bool soundPlayed;
 	private Vector3 previousPosition;
 	private Vector3 newPosition; 
 	private GameObject bunnyCutout;
@@ -13,6 +14,7 @@ public class TriggerEvent : MonoBehaviour {
 	void Start () {
 		alive = true;
 		shadowScare = false;
+		soundPlayed = false;
 		bunnyCutout = GameObject.Find("bunny_cutout");
 		targetLoc = GameObject.Find("lerpLoc");
 	}
@@ -34,11 +36,14 @@ public class TriggerEvent : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player" && alive == true){			
-			if(!shadowScare){
+			if(!shadowScare){	
 				shadowScare = true;				
 			}
-			
-			audio.Play();
+			if(soundPlayed == false){
+				bunnyCutout.gameObject.audio.Play();
+				soundPlayed = true;
+			}
+			//audio.Play();
 			Debug.Log("Event Triggered");
 			alive = false;
 		}
