@@ -66,6 +66,9 @@ public class GameManager : MonoBehaviour {
 		if(firstTrigger == true && secondTrigger == true && thirdTrigger == true ){
 			finalBunny.SetActive(true);
 		}
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			Application.Quit();
+		}
 	}
 	
 	
