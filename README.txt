@@ -13,12 +13,12 @@ Mommy Project ReadMe (Unity Pro Required?)
 	git push --set-upstream origin <branchName>
 
 +switching branches
-	git chechout <newBranchName>
+	git checkout <newBranchName>
 	
 +pushing to current branch
 	git status
 	git add .
-	git commit --all -m"<message>"
+	git commit -a -m "<message>"
 	git push origin <branchName>
 	
 +pulling from master
@@ -41,4 +41,5 @@ Mommy Project ReadMe (Unity Pro Required?)
  - 'O' -- Enable Oculus
  - 'E' -- Interact
  - '(Hold)RClick' -- Activate flashlight controls
+ - 'LClick -- Throw
  - 'W, A, S, D' -- Movement

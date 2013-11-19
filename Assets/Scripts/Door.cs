@@ -9,13 +9,22 @@ public class Door : MonoBehaviour {
 	Quaternion targetRot;
 	float t;
 	float animTime;
-
+	public AudioClip openClip;
+	public AudioClip closeClip;
+	public AudioClip slamDoorClip;
+	public bool slam;
+	public bool lightScare;
+	public GameObject lightSource;
+	public GameObject gameManager;
+	
 	// Use this for initialization
 	void Start () {
 		doorClosed = true;
 		rotating = false;
 		opened = false;
 		animTime = 0.0f;
+		slam = false;
+		lightScare = false;
 	}
 	
 	// Update is called once per frame
@@ -33,26 +42,57 @@ public class Door : MonoBehaviour {
 	
 	public void RotateDoor(float time){
 		animTime = time;
-		if(rotating == false){
+		if(rotating == false && slam == false){
 			if(doorClosed == true){
+				audio.clip = openClip;
+				audio.Play();
 				initialRot = transform.localRotation;
 			    targetRot = transform.localRotation * Quaternion.Euler(new Vector3(0, -90, 0));
 			    t = 0.0f;
 				rotating = true;
 				doorClosed = false;
 			}
-			else if(doorClosed == false){
+			else if(doorClosed == false && slam == false){
+				audio.clip = closeClip;
+				audio.Play();
 			    initialRot = transform.localRotation;
 			    targetRot = transform.localRotation * Quaternion.Euler(new Vector3(0, 90, 0));
 			    t = 0.0f;
 				rotating = true;
 				doorClosed = true;
 			}
+			 
 		}
+		if(doorClosed == false && slam == true){
+				Debug.Log("SLAM THAT DOOR");
+				audio.clip = slamDoorClip;
+				audio.Play();
+			    initialRot = transform.localRotation;
+			    targetRot = transform.localRotation * Quaternion.Euler(new Vector3(0, 90, 0));
+			    t = 0.0f;
+				rotating = true;
+				doorClosed = true;
+				slam = false;
+			}
+		
+		if(doorClosed == false && lightScare == false && gameObject.name == "bathroom"){
+				Debug.Log("LIGHT TRIGGER");
+				lightSource.gameObject.GetComponent<lightTriggerEvent>().triggered = true;
+				audio.clip = openClip;
+				audio.Play();
+			    initialRot = transform.localRotation;
+			    targetRot = transform.localRotation * Quaternion.Euler(new Vector3(0, 90, 0));
+			    t = 0.0f;
+				rotating = true;
+				doorClosed = true;
+				lightScare = true;
+			
+				gameManager.gameObject.GetComponent<GameManager>().secondTrigger = true;
+			}
 	}
 	public void startEvent(){
 		if(opened == false){
-			audio.Play();
+			//audio.Play();
 			opened = true;
 		}
 	}
