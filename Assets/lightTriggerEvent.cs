@@ -40,7 +40,7 @@ public class lightTriggerEvent : MonoBehaviour {
 			limit = Random.Range(0.05f, 0.5f);
 			
 			
-		}else if(triggered == true && light.enabled == true){
+		}else if(triggered == true && audio.clip != shatter){
 			Debug.Log("TURN OFF THE LIGHT, BOBBY");
 			light.enabled = false;
 			audio.clip = shatter;
