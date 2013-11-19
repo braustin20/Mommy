@@ -5,6 +5,10 @@ public class lightTriggerEvent : MonoBehaviour {
 	public float time;
 	private float limit; 
 	public bool triggered;
+	public AudioClip clickon;
+	public AudioClip clickoff;
+	public AudioClip shatter;
+	
 	// Use this for initialization
 	void Start () {
 		
@@ -22,9 +26,13 @@ public class lightTriggerEvent : MonoBehaviour {
 		if(time >= limit && triggered == false){
 			
 			if(light.enabled == true){
+				audio.clip = clickon;
+				audio.Play();
 				light.enabled = false;
 				
 			}else{
+				audio.clip = clickoff;
+				audio.Play();
 				light.enabled = true;
 				
 			}
@@ -35,6 +43,8 @@ public class lightTriggerEvent : MonoBehaviour {
 		}else if(triggered == true && light.enabled == true){
 			Debug.Log("TURN OFF THE LIGHT, BOBBY");
 			light.enabled = false;
+			audio.clip = shatter;
+			audio.Play();
 		}
 		
 		
