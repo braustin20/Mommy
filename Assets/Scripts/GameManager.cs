@@ -2,44 +2,42 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-	public Camera ovrCameraL;
-	public Camera ovrCameraR;
-	public Camera fpsCamera;
 	public GameObject fpsFlashlight;
 	public GameObject ovrFlashlight;
-	public GameObject ovrCharacter;
+	public GameObject ovrCameraController;
 	public GameObject fpsCharacter;
+	private GameObject ovrCharacter;
+	public GameObject finalBunny;
 	private bool oculus;
+	
+	public bool firstTrigger;
+	public bool secondTrigger;
+	public bool thirdTrigger;
 	
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
 		Screen.showCursor = false;
 		oculus = false;
+		ovrCharacter = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.O)){
 			if(oculus == true){
-				ovrCameraL.enabled = false;
-				ovrCameraR.enabled = false;
-				fpsCamera.enabled = true;
-				ovrFlashlight.gameObject.SetActive(false);
 				fpsFlashlight.gameObject.SetActive(true);
 				oculus = false;
-				ovrCameraR.gameObject.GetComponent<PlayerInteract>().enabled = false;
-				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = true;
+				
+				ovrCameraController.gameObject.SetActive(false);
+				fpsCharacter.gameObject.SetActive(true);
 			}
 			else if(oculus == false){
-				ovrCameraL.enabled = true;
-				ovrCameraR.enabled = true;
-				fpsCamera.enabled = false;
-				ovrFlashlight.gameObject.SetActive(true);
 				fpsFlashlight.gameObject.SetActive(false);
 				oculus = true;
-				ovrCameraR.gameObject.GetComponent<PlayerInteract>().enabled = true;
-				fpsCamera.gameObject.GetComponent<PlayerInteract>().enabled = false;
+				
+				ovrCameraController.gameObject.SetActive(true);
+				fpsCharacter.gameObject.SetActive(false);
 			}
 		}
 		if(oculus == true){
@@ -65,13 +63,13 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		
-		/*
-		if(Input.GetKeyDown(KeyCode.Alpha1)){
-			Application.LoadLevel(0);
+		if(firstTrigger == true && secondTrigger == true && thirdTrigger == true ){
+			finalBunny.SetActive(true);
 		}
-		else if(Input.GetKeyDown(KeyCode.Alpha2)){
-			Application.LoadLevel(1);
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			Application.Quit();
 		}
-		*/
 	}
+	
+	
 }
