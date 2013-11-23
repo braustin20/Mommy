@@ -24,7 +24,7 @@ public class PlayerInteract: MonoBehaviour {
 		//Reverses the bitmask so that we're hitting everything EXCEPT layer 8
 		layerMask = ~layerMask;
 		
-		if(Input.GetKeyDown(KeyCode.E)){
+		if(Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("JoyInteract")){
 			//If the player presses the grab key and is not holding an object, raycast to see if one is in range
 			if(isHolding == false){
 				if(Physics.Raycast(transform.position, transform.forward, out hit, 5.0f, layerMask)){
@@ -54,7 +54,7 @@ public class PlayerInteract: MonoBehaviour {
 				isHolding = false;
 			}
 		}
-		if(Input.GetKeyDown(KeyCode.Mouse0)){
+		if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("JoyThrow")){
 			if(isHolding == true){
 				isHolding = false;
 				hitObject.parent = null;

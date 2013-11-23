@@ -41,22 +41,22 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		if(oculus == true){
-			if(Input.GetKeyDown(KeyCode.Mouse1)){
+			if(Input.GetKeyDown(KeyCode.Mouse1) || Input.GetButtonDown("JoyModifier")){
 				ovrFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = true;
 				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
 			}
-			if(Input.GetKeyUp(KeyCode.Mouse1)){
+			if(Input.GetKeyUp(KeyCode.Mouse1) || Input.GetButtonUp("JoyModifier")){
 				ovrFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = false;
 				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
 			}
 		}
 		else{
-			if(Input.GetKeyDown(KeyCode.Mouse1)){
+			if(Input.GetKeyDown(KeyCode.Mouse1) || Input.GetButtonDown("JoyModifier")){
 				fpsFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = true;
 				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
 				fpsCharacter.gameObject.GetComponent<MouseLook>().enabled = false;
 			}
-			if(Input.GetKeyUp(KeyCode.Mouse1)){
+			if(Input.GetKeyUp(KeyCode.Mouse1) || Input.GetButtonUp("JoyModifier")){
 				fpsFlashlight.gameObject.GetComponent<FlashlightControls>().enabled = false;
 				ovrCharacter.gameObject.GetComponent<MouseLook>().enabled = true;
 				fpsCharacter.gameObject.GetComponent<MouseLook>().enabled = true;

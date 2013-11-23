@@ -1,59 +1,37 @@
+/*Script which manages flashlight controls based on mouse or gamepad input
+ *Requires toggle on/off within a game manager script
+ */
+
 using UnityEngine;
 using System.Collections;
 
-/// MouseLook rotates the transform based on the mouse delta.
-/// Minimum and Maximum values can be used to constrain the possible rotation
+public class FlashlightControls : MonoBehaviour {	
+	//Speed of flashlight movement
+	public float sensitivityX = 15.0f;
+	public float sensitivityY = 15.0f;
+	
+	//Limits how far the flashlight can rotate
+	private float minimumX = -45.0f;
+	private float maximumX = 45.0f;
+	private float minimumY = -45.0f;
+	private float maximumY = 45.0f;
+	
+	//The actual rotation value before the limits are applied
+	float rotationY = 0.0f;
+	float rotationX = 0.0f;
 
-/// To make an FPS style character:
-/// - Create a capsule.
-/// - Add the MouseLook script to the capsule.
-///   -> Set the mouse look to use LookX. (You want to only turn character but not tilt it)
-/// - Add FPSInputController script to the capsule
-///   -> A CharacterMotor and a CharacterController component will be automatically added.
-
-/// - Create a camera. Make the camera a child of the capsule. Reset it's transform.
-/// - Add a MouseLook script to the camera.
-///   -> Set the mouse look to use LookY. (You want the camera to tilt up and down like a head. The character already turns.)
-[AddComponentMenu("Camera-Control/Mouse Look")]
-public class FlashlightControls : MonoBehaviour {
-
-	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
-	public RotationAxes axes = RotationAxes.MouseXAndY;
-	public float sensitivityX = 15F;
-	public float sensitivityY = 15F;
-
-	public float minimumX = -360F;
-	public float maximumX = 360F;
-
-	public float minimumY = -60F;
-	public float maximumY = 60F;
-
-	float rotationY = 0F;
-	float rotationX = 0F;
-
-	void Update ()
-	{
-		if (axes == RotationAxes.MouseXAndY)
-		{
-			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-			
-			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-			rotationX = Mathf.Clamp (rotationX, minimumX, maximumX);
-			
-			transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
-		}
-		else if (axes == RotationAxes.MouseX)
-		{
-			transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
-		}
-		else
-		{
-			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-			
-			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
-		}
+	void Update (){
+		//Calculate rotation using sensitivity plus mouse as well as joy axis
+		//**May allow for strange behavior if gamepad and mouse is used simultaneously**
+		rotationX += (Input.GetAxis("RHoriz") + Input.GetAxis("Mouse X")) * sensitivityX;
+		rotationY += (Input.GetAxis("RVert")  + Input.GetAxis("Mouse Y")) * sensitivityY;
+		
+		//Limit the movement based on values set above
+		rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+		rotationX = Mathf.Clamp (rotationX, minimumX, maximumX);
+		
+		//Perform the change of the rotation
+		transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0.0f);
 	}
 	
 	void Start ()
