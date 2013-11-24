@@ -311,8 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07b7ece26b86716498f1a0efed9b0af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityX: 10
-  sensitivityY: 10
+  sensitivityX: 15
+  sensitivityY: 15
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
