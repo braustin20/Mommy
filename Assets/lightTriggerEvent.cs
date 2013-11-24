@@ -44,6 +44,7 @@ public class lightTriggerEvent : MonoBehaviour {
 			Debug.Log("TURN OFF THE LIGHT, BOBBY");
 			light.enabled = false;
 			audio.clip = shatter;
+			audio.volume = 1.0f;
 			audio.Play();
 		}
 		
